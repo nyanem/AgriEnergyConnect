@@ -47,7 +47,7 @@ namespace AgriEnergyConnect.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "FarmerId");
+            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "FullName");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace AgriEnergyConnect.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "FarmerId", product.FarmerId);
+            ViewData["FarmerId"] = new SelectList(_context.Farmers, "FarmerId", "Fullname", product.FarmerId);
             return View(product);
         }
 
